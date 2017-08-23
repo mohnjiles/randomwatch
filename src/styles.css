@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url('https://overwatch.gamepedia.com/media/overwatch.gamepedia.com/e/e3/Junkertown.jpg');
+  color: white;
+}
