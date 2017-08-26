@@ -4,10 +4,12 @@
 <div class="container-fluid padded">
   <div class="row">
     <button class="btn btn-success btn-lg random-buttons" (click)="updateRandom()">Randomize</button>
-    <button class="btn btn-warning btn-lg random-buttons" (click)="getAnyRandomHero()">Random Heroes</button>
-    <button class="btn btn-warning btn-lg random-buttons" (click)="getTanks()">Tanks</button>
-    <button class="btn btn-warning btn-lg random-buttons" (click)="getHealers()">Healers</button>
-    <button class="btn btn-warning btn-lg random-buttons" (click)="getGoodTeamComp()">Balanced Team Comp</button>
+    <button class="btn {{getButtonClass('Any')}} btn-lg random-buttons" (click)="getAnyRandomHero()">All</button>
+    <button class="btn {{getButtonClass('Offense')}} btn-lg random-buttons" (click)="getOffense()">Offense</button>
+    <button class="btn {{getButtonClass('Defense')}} btn-lg random-buttons" (click)="getDefense()">Defense</button>
+    <button class="btn {{getButtonClass('Tanks')}} btn-lg random-buttons" (click)="getTanks()">Tanks</button>
+    <button class="btn {{getButtonClass('Healers')}} btn-lg random-buttons" (click)="getHealers()">Healers</button>
+    <button class="btn {{getButtonClass('GoodTeamComp')}} btn-lg random-buttons" (click)="getGoodTeamComp()">Balanced Team Comp</button>
   </div>
   <div class="row">
     <div class="col-md-1">
@@ -25,6 +27,6 @@
     </div>
   </div>
   <div class="row">
-    <app-hero class="col-md-2 col-xs-6 col-md-offset-{{index == 0 ? -heroCount + 6 : 0}}" *ngFor="let hero of currentRandomedHeroes; let index = index" [hero]="hero"></app-hero>
+    <app-hero class="col-md-2 col-xs-6 col-md-offset-{{index == 0 ? 6 - currentRandomedHeroes.length : 0}}" *ngFor="let hero of currentRandomedHeroes; let index = index" [hero]="hero"></app-hero>
   </div>
 </div>

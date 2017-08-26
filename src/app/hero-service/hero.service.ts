@@ -62,14 +62,14 @@ export class HeroService {
     return this.shuffle(team);
   }
 
-  getTanks(count: number): Hero[] {
+  getRandomHeroesByTag(tag: string, count: number): Hero[] {
     var randomedHeroes = [];
-    var tanks = this.getHeroesByTag("Tank");
+    var heroChoices = this.getHeroesByTag(tag);
 
     for (var i = 0; i < count; i++) {
-      var tank = tanks[Math.floor(Math.random() * tanks.length)];
-      randomedHeroes.push(tank);
-      this.removeHeroFromArray(tanks, tank);
+      var hero = heroChoices[Math.floor(Math.random() * heroChoices.length)];
+      randomedHeroes.push(hero);
+      this.removeHeroFromArray(heroChoices, hero);
     }
 
     return this.shuffle(randomedHeroes);
@@ -97,7 +97,7 @@ export class HeroService {
   getAnyRandomHero(count: number): Hero[] {
     var randomedHeroes = [];
     var heroes = Array.from(HEROES);
-    
+
     for (var i = 0; i < count; i++) {
       var hero = heroes[Math.floor(Math.random() * heroes.length)];
       randomedHeroes.push(hero);

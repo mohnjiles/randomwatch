@@ -34,6 +34,12 @@ export class AppComponent implements OnInit {
       case "Healers":
         this.getHealers();
         break;
+      case "Defense":
+        this.getDefense();
+        break;
+      case "Offense":
+        this.getOffense();
+        break;
       case "Any":
         this.getAnyRandomHero();
         break;
@@ -49,11 +55,26 @@ export class AppComponent implements OnInit {
     return +heroCount == this.heroCount;
   }
 
+  getButtonClass(type: string): string {
+    return type == this.lastRandomType ? "btn-warning" : "btn-jt";
+  }
+
   getTanks(): void {
     this.lastRandomType = "Tanks";
-    var randomedHeroes = this.heroService.getTanks(this.heroCount);
+    this.currentRandomedHeroes =
+        this.heroService.getRandomHeroesByTag("Tank", this.heroCount);
+  }
 
-    this.currentRandomedHeroes = randomedHeroes;
+  getDefense(): void {
+    this.lastRandomType = "Defense";
+    this.currentRandomedHeroes =
+        this.heroService.getRandomHeroesByTag("Defense", this.heroCount);
+  }
+
+  getOffense(): void {
+    this.lastRandomType = "Offense";
+    this.currentRandomedHeroes =
+        this.heroService.getRandomHeroesByTag("Offense", this.heroCount);
   }
 
   getGoodTeamComp(): void {
