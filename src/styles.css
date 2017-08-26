@@ -1,4 +1,11 @@
+@font-face {
+  font-family: "BigNoodle";
+  src: url('assets/fonts/bignoodletoo.ttf') format("truetype"),
+  url('assets/fonts/bignoodletoo.woff') format("woff");
+}
+
 body {
   background-image: url('https://overwatch.gamepedia.com/media/overwatch.gamepedia.com/e/e3/Junkertown.jpg');
   color: white;
+  font-family: "BigNoodle";
 }

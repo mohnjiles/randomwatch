@@ -1,0 +1,10 @@
+nav {
+  font-size: 2em;
+  background-color: rgba(0,0,0,0.6);
+  border: none;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  color: white;
+}

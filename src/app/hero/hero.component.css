@@ -1,4 +1,20 @@
 .hero-name {
   background-color: orange;
   color: black;
+  border-radius: 10px;
+}
+
+.hero-portrait {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.hero-img {
+  position: relative;
+  left: 100%;
+  margin-left: -200%;
+  border-radius: 10px;
 }

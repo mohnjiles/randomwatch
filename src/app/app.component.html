@@ -1,9 +1,30 @@
-
+<app-navbar></app-navbar>
 <div class="page-bg"></div>
 
 <div class="container-fluid padded">
-  <h1 style="font-size: 4em;">{{title}}</h1>
   <div class="row">
-    <app-hero *ngFor="let hero of this.heroService.getHeroes()" [hero]="hero"></app-hero>
+    <button class="btn btn-success btn-lg random-buttons" (click)="updateRandom()">Randomize</button>
+    <button class="btn btn-warning btn-lg random-buttons" (click)="getAnyRandomHero()">Random Heroes</button>
+    <button class="btn btn-warning btn-lg random-buttons" (click)="getTanks()">Tanks</button>
+    <button class="btn btn-warning btn-lg random-buttons" (click)="getHealers()">Healers</button>
+    <button class="btn btn-warning btn-lg random-buttons" (click)="getGoodTeamComp()">Balanced Team Comp</button>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <h1>Hero Count</h1>
+    </div>
+    <div class="col-md-10">
+      <ul class="pagination">
+        <li><a href="#" (click)="setHeroCount($event.target.innerText)" [class.selected]="isSelected(1)">1</a></li>
+        <li><a href="#" (click)="setHeroCount($event.target.innerText)" [class.selected]="isSelected(2)">2</a></li>
+        <li><a href="#" (click)="setHeroCount($event.target.innerText)" [class.selected]="isSelected(3)">3</a></li>
+        <li><a href="#" (click)="setHeroCount($event.target.innerText)" [class.selected]="isSelected(4)">4</a></li>
+        <li><a href="#" (click)="setHeroCount($event.target.innerText)" [class.selected]="isSelected(5)">5</a></li>
+        <li><a href="#" (click)="setHeroCount($event.target.innerText)" [class.selected]="isSelected(6)">6</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <app-hero class="col-md-2 col-xs-6 col-md-offset-{{index == 0 ? -heroCount + 6 : 0}}" *ngFor="let hero of currentRandomedHeroes; let index = index" [hero]="hero"></app-hero>
   </div>
 </div>
