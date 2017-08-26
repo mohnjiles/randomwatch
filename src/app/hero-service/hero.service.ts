@@ -75,6 +75,20 @@ export class HeroService {
     return this.shuffle(randomedHeroes);
   }
 
+  getRandomHeroesByGender(gender: string, count: number): Hero[] {
+    var randomedHeroes = [];
+    var heroChoices = this.getHeroes().filter(x => x.gender == gender);
+
+    for (var i = 0; i < count; i++) {
+      if (heroChoices.length == 0) continue;
+      var hero = heroChoices[Math.floor(Math.random() * heroChoices.length)];
+      randomedHeroes.push(hero);
+      this.removeHeroFromArray(heroChoices, hero);
+    }
+
+    return this.shuffle(randomedHeroes);
+  }
+
   getHealers(count: number): Hero[] {
     var randomedHeroes = [];
     var healers = this.getHeroesByTag("Support");

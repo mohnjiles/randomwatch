@@ -58,7 +58,7 @@
   color: black !important;
 }
 
-.btn-warning:hover, .btn-success:hover {
+.btn-warning:hover, .btn-warning:hover:focus, .btn-success:hover, .btn-success:hover:focus {
   position: relative;
   top: -1px;
   box-shadow: 0px 1px 5px black;

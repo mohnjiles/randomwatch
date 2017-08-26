@@ -40,6 +40,15 @@ export class AppComponent implements OnInit {
       case "Offense":
         this.getOffense();
         break;
+      case "Male":
+        this.getMales();
+        break;
+      case "Female":
+        this.getFemales();
+        break;
+      case "Omnic":
+        this.getOmnics();
+        break;
       case "Any":
         this.getAnyRandomHero();
         break;
@@ -62,19 +71,43 @@ export class AppComponent implements OnInit {
   getTanks(): void {
     this.lastRandomType = "Tanks";
     this.currentRandomedHeroes =
-        this.heroService.getRandomHeroesByTag("Tank", this.heroCount);
+      this.heroService.getRandomHeroesByTag("Tank", this.heroCount);
   }
 
   getDefense(): void {
     this.lastRandomType = "Defense";
     this.currentRandomedHeroes =
-        this.heroService.getRandomHeroesByTag("Defense", this.heroCount);
+      this.heroService.getRandomHeroesByTag("Defense", this.heroCount);
   }
 
   getOffense(): void {
     this.lastRandomType = "Offense";
     this.currentRandomedHeroes =
-        this.heroService.getRandomHeroesByTag("Offense", this.heroCount);
+      this.heroService.getRandomHeroesByTag("Offense", this.heroCount);
+  }
+
+  getHardTanks(): void {
+    this.lastRandomType = "HardTank";
+    this.currentRandomedHeroes =
+      this.heroService.getRandomHeroesByTag("HardTank", this.heroCount);
+  }
+
+  getMales(): void {
+    this.lastRandomType = "Male";
+    this.currentRandomedHeroes =
+      this.heroService.getRandomHeroesByGender("male", this.heroCount);
+  }
+
+  getFemales(): void {
+    this.lastRandomType = "Female";
+    this.currentRandomedHeroes =
+      this.heroService.getRandomHeroesByGender("female", this.heroCount);
+  }
+
+  getOmnics(): void {
+    this.lastRandomType = "Omnic";
+    this.currentRandomedHeroes =
+      this.heroService.getRandomHeroesByGender("omnic", this.heroCount);
   }
 
   getGoodTeamComp(): void {
